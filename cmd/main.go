@@ -6,7 +6,6 @@ import (
 	"jordanmckoy/guardian/delivery/websocketserver"
 	"jordanmckoy/guardian/handler/interactionhandler"
 	"jordanmckoy/guardian/handler/messagehandler"
-	"jordanmckoy/guardian/internal/storage"
 	"log"
 	"os"
 	"os/signal"
@@ -30,12 +29,6 @@ func main() {
 		messagehandler.New(&cfg.Discord),
 		interactionhandler.New(&cfg.Discord),
 	}
-
-	// Redis
-	storage.RedisInit()
-
-	// Prisma
-	storage.PrismaInit()
 
 	server := websocketserver.New(&cfg, handlers, discordgo.IntentsAll)
 	server.Serve()
