@@ -4,6 +4,7 @@ import (
 	"context"
 	"jordanmckoy/guardian/db"
 	"log"
+	"os"
 
 	"github.com/redis/go-redis/v9"
 )
@@ -23,11 +24,13 @@ func init() {
 		return
 	}
 
-	RedisClient = redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
-		Password: "", // no password set
-		DB:       0,  // use default DB
-	})
+	opts, err := redis.ParseURL(os.Getenv("REDIS_URL"))
+
+	if err != nil {
+		log.Fatalf("Unable to connect to redis: %v", err)
+	}
+
+	RedisClient = redis.NewClient(opts)
 
 	if _, err := RedisClient.Ping(ctx).Result(); err != nil {
 		log.Fatalf("Unable to connect to redis: %v", err)
