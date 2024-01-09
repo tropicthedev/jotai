@@ -2,7 +2,6 @@ package interactionhandler
 
 import (
 	"context"
-	"jordanmckoy/guardian/internal/storage"
 	"log"
 	"time"
 
@@ -45,5 +44,9 @@ func (h Handler) EnrollButton(s *discordgo.Session, i *discordgo.InteractionCrea
 		return
 	}
 
-	storage.GetClient().Set(ctx, i.Member.User.ID, "started", 0)
+	h.redis.Set(ctx, i.Member.User.ID, "started", 0).Err()
+
+	if err != nil {
+		panic(err)
+	}
 }

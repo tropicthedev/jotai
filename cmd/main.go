@@ -32,7 +32,10 @@ func main() {
 	}
 
 	// Redis
-	storage.Init()
+	storage.RedisInit()
+
+	// Prisma
+	storage.PrismaInit()
 
 	server := websocketserver.New(&cfg, handlers, discordgo.IntentsAll)
 	server.Serve()
