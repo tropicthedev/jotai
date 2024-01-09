@@ -1,0 +1,79 @@
+generator db {
+    provider = "go run github.com/steebchen/prisma-client-go"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+model Admin {
+    id          Int           @id @default(autoincrement())
+    discord_id  String
+    Application Application[]
+    Interview   Interview[]
+}
+
+model Application {
+    id         Int        @id @default(autoincrement())
+    message_id String
+    discord_id String
+    status     String
+    answers    String
+    admin_id   Int?
+    response   String?
+    created_at DateTime   @default(now())
+    updated_at DateTime
+    Admin      Admin?     @relation(fields: [admin_id], references: [id], onDelete: Cascade)
+    Interview  Interview?
+
+    @@index([admin_id], map: "Application_admin_id_fkey")
+}
+
+model Interview {
+    id             Int         @id @default(autoincrement())
+    application_id Int         @unique
+    discord_id     String
+    thread_id      String?     @unique
+    status         String
+    admin_id       Int?
+    response       String?
+    created_at     DateTime    @default(now())
+    updated_at     DateTime
+    Admin          Admin?      @relation(fields: [admin_id], references: [id], onDelete: Cascade)
+    Application    Application @relation(fields: [application_id], references: [id], onDelete: Cascade)
+
+    @@index([admin_id], map: "Interview_admin_id_fkey")
+}
+
+model Member {
+    id           Int       @id @default(autoincrement())
+    mojang_id    String    @unique
+    discord_id   String
+    grace_period DateTime
+    created_at   DateTime  @default(now())
+    updated_at   DateTime
+    Session      Session[]
+}
+
+model Server {
+    id          Int       @id @default(autoincrement())
+    server_id   String    @unique
+    server_name String
+    created_at  DateTime  @default(now())
+    updated_at  DateTime
+    Session     Session[]
+}
+
+model Session {
+    id         Int       @id @default(autoincrement())
+    mojang_id  String
+    server_id  String
+    start_time DateTime  @default(now())
+    end_time   DateTime?
+    Member     Member    @relation(fields: [mojang_id], references: [mojang_id], onDelete: Cascade)
+    Server     Server    @relation(fields: [server_id], references: [server_id], onDelete: Cascade)
+
+    @@index([mojang_id], map: "Session_mojang_id_fkey")
+    @@index([server_id], map: "Session_server_id_fkey")
+}

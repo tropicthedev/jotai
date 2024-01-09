@@ -1,16 +1,18 @@
 package interactionhandler
 
-import "github.com/bwmarrin/discordgo"
+import (
+	"github.com/bwmarrin/discordgo"
+)
 
-func (h Handler) Ping(s *discordgo.Session, i *discordgo.InteractionCreate) {
-	if i.ApplicationCommandData().Name != "ping" {
+func (h Handler) Apply(s *discordgo.Session, i *discordgo.InteractionCreate) {
+	if i.ApplicationCommandData().Name != "apply" {
 		return
 	}
 
 	s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
 		Data: &discordgo.InteractionResponseData{
-			Content: "Pong " + h.config.Name,
+			Content: "Check your DMs!",
 		},
 	})
 }

@@ -2,11 +2,11 @@ package main
 
 import (
 	"flag"
+	"jordanmckoy/guardian/config"
+	"jordanmckoy/guardian/delivery/websocketserver"
+	"jordanmckoy/guardian/handler/interactionhandler"
+	"jordanmckoy/guardian/handler/messagehandler"
 	"log"
-	"mdhesari/discordgo-bot-kit/config"
-	"mdhesari/discordgo-bot-kit/delivery/websocketserver"
-	"mdhesari/discordgo-bot-kit/handler/interactionhandler"
-	"mdhesari/discordgo-bot-kit/handler/messagehandler"
 	"os"
 	"os/signal"
 	"syscall"

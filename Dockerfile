@@ -9,7 +9,7 @@ RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh
 
 # Add Maintainer Info
-LABEL maintainer="Mohamad Hesari <mdhesari99@gmail.com>"
+LABEL maintainer="Jordan McKoy"
 
 # Set the Current Working Directory inside the container
 WORKDIR /app

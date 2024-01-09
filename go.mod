@@ -1,14 +1,17 @@
-module mdhesari/discordgo-bot-kit
+module jordanmckoy/guardian
 
 go 1.21.5
 
 require github.com/knadh/koanf/v2 v2.0.1
 
 require (
-	github.com/fsnotify/fsnotify v1.6.0 // indirect
-	github.com/gorilla/websocket v1.4.2 // indirect
-	golang.org/x/crypto v0.0.0-20210421170649-83a5a9bb288b // indirect
-	golang.org/x/sys v0.0.0-20220908164124-27713097b956 // indirect
+	github.com/fsnotify/fsnotify v1.7.0 // indirect
+	github.com/gorilla/websocket v1.5.1 // indirect
+	github.com/steebchen/prisma-client-go v0.31.5 // indirect
+	github.com/stretchr/testify v1.8.4 // indirect
+	golang.org/x/crypto v0.18.0 // indirect
+	golang.org/x/net v0.20.0 // indirect
+	golang.org/x/sys v0.16.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 

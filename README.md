@@ -51,8 +51,8 @@ Server handler business logic layer where we register different handlers for dif
 ## How to Contribute
 
 Anyone and everyone is welcome to [contribute](.github/CONTRIBUTING.md). Start
-by checking out the list of [open issues](https://github.com/mdhesari/discordgo-bot-kit/issues)
-marked [help wanted](https://github.com/mdhesari/discordgo-bot-kit/issues?q=label:"help+wanted").
+by checking out the list of [open issues](https://github.com/jordanmckoy/guardian/issues)
+marked [help wanted](https://github.com/jordanmckoy/guardian/issues?q=label:"help+wanted").
 However, if you decide to get involved, please take a moment to review the
 [guidelines](.github/CONTRIBUTING.md).
 

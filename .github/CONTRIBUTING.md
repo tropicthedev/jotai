@@ -1,6 +1,6 @@
 # Contributing to Discord Bot Kit
 
-♥ [Discord Bot Kit](https://github.com/mdhesari/discordgo-bot-kit) and
+♥ [Discord Bot Kit](https://github.com/jordanmckoy/guardian) and
 want to get involved? Thanks! There are plenty of ways you can help!
 
 Please take a moment to review this document in order to make the contribution
@@ -13,13 +13,13 @@ patches and features.
 
 ## Using the issue tracker
 
-The [issue tracker](https://github.com/mdhesari/discordgo-bot-kit/issues) is
+The [issue tracker](https://github.com/jordanmckoy/guardian/issues) is
 the preferred channel for [bug reports](#bugs), [features requests](#features)
 and [submitting pull requests](#pull-requests), but please respect the following
 restrictions:
 
 - Please **do not** use the issue tracker for personal support requests (use
-  [Gitter](https://gitter.im/mdhesari/discordgo-bot-kit),
+  [Gitter](https://gitter.im/jordanmckoy/guardian),
   [HackHands](https://hackhands.com/koistya) or
   [Codementor](https://www.codementor.io/koistya)).
 
@@ -104,7 +104,7 @@ included in the project:
    # Navigate to the newly cloned directory
    cd discordgo-bot-kit
    # Assign the original repo to a remote called "upstream"
-   git remote add upstream https://github.com/mdhesari/discordgo-bot-kit.git
+   git remote add upstream https://github.com/jordanmckoy/guardian.git
    ```
 
 2. If you cloned a while ago, get the latest changes from upstream:

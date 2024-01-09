@@ -1,7 +1,46 @@
 type: yml
 
 discord:
-  name: BotName
-  # do we need for specific guild? if not leave it empty
-  guild_id:
-  token: YOUR_DISCORD_BOT_TOKEN
+  prefix: "!"
+  name: Jotai
+  console_channel: "your_console_channel"
+  token: "your_token"
+  guild_id: "your_guild_id"
+  client_id: "your_client_id"
+  status: "your_status"
+  join_channel: "your_join_channel"
+  join_message: "your_join_message"
+  accept_channel: "your_accept_channel"
+  accept_message: "your_accept_message"
+  member_role: "your_member_role"
+  admin_role: "your_admin_role"
+  owners:
+    - "owner1"
+    - "owner2"
+
+server:
+  port: 8080
+  token: "your_server_token"
+
+applications:
+  timeout: 60
+  channel: "your_applications_channel"
+  questions:
+    - "Question 1"
+    - "Question 2"
+
+interviews:
+  notification: "your_interview_notification_channel"
+  role: "your_interview_role"
+  channel: "your_interview_channel"
+  private: true
+
+whitelist_manager:
+  enabled: true
+  inactivity:
+    message: "your_inactivity_message"
+    vacation_role: "your_vacation_role"
+    remove_inactive_player_after_days: 30
+    grace_period_days: 7
+    timezone: "your_timezone"
+    cron: "0 0 * * *"

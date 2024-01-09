@@ -1,7 +1,7 @@
 package websocketserver
 
 import (
-	"mdhesari/discordgo-bot-kit/config"
+	"jordanmckoy/guardian/config"
 
 	"github.com/bwmarrin/discordgo"
 )

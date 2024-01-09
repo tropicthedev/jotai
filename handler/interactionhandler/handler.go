@@ -1,7 +1,7 @@
 package interactionhandler
 
 import (
-	"mdhesari/discordgo-bot-kit/config"
+	"jordanmckoy/guardian/config"
 )
 
 type Handler struct {
