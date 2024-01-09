@@ -9,6 +9,7 @@ func (h Handler) Register(session *discordgo.Session) {
 	actions := []interface{}{
 		h.Ping,
 		h.Enroll,
+		h.EnrollButton,
 	}
 
 	for _, a := range actions {

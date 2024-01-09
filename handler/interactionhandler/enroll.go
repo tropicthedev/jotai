@@ -7,6 +7,10 @@ import (
 )
 
 func (h Handler) Enroll(s *discordgo.Session, i *discordgo.InteractionCreate) {
+	if i.Type != discordgo.InteractionApplicationCommand {
+		return
+	}
+
 	if i.ApplicationCommandData().Name != "enroll" {
 		return
 	}
@@ -35,7 +39,7 @@ func (h Handler) Enroll(s *discordgo.Session, i *discordgo.InteractionCreate) {
 							},
 							Label:    "Apply",
 							Style:    discordgo.PrimaryButton,
-							CustomID: "enroll",
+							CustomID: "action::enroll",
 						},
 					},
 				},

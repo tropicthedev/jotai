@@ -3,6 +3,10 @@ package interactionhandler
 import "github.com/bwmarrin/discordgo"
 
 func (h Handler) Ping(s *discordgo.Session, i *discordgo.InteractionCreate) {
+	if i.Type != discordgo.InteractionApplicationCommand {
+		return
+	}
+
 	if i.ApplicationCommandData().Name != "ping" {
 		return
 	}
