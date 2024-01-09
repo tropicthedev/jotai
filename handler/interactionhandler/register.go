@@ -10,6 +10,7 @@ func (h Handler) Register(session *discordgo.Session) {
 		h.Ping,
 		h.Enroll,
 		h.EnrollButton,
+		h.DirectMessage,
 	}
 
 	for _, a := range actions {

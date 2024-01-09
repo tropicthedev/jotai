@@ -1,6 +1,8 @@
 package interactionhandler
 
 import (
+	"context"
+	"jordanmckoy/guardian/internal/storage"
 	"log"
 	"time"
 
@@ -8,6 +10,8 @@ import (
 )
 
 func (h Handler) EnrollButton(s *discordgo.Session, i *discordgo.InteractionCreate) {
+	var ctx = context.Background()
+
 	if i.Type != discordgo.InteractionMessageComponent {
 		return
 	}
@@ -27,12 +31,19 @@ func (h Handler) EnrollButton(s *discordgo.Session, i *discordgo.InteractionCrea
 		Description: h.config.JoinMessage,
 	}
 
-	dm, err := s.UserChannelCreate(i.Member.User.ID)
+	channel, err := s.UserChannelCreate(i.Member.User.ID)
 
 	if err != nil {
 		log.Printf("Cannot send message to user '%v, Error: %v", i.Member.User.Username, err)
 		return
 	}
 
-	s.ChannelMessageSendEmbed(dm.ID, embed)
+	_, err = s.ChannelMessageSendEmbed(channel.ID, embed)
+
+	if err != nil {
+		log.Printf("Cannot send message to user '%v, Error: %v", i.Member.User.Username, err)
+		return
+	}
+
+	storage.GetClient().Set(ctx, i.Member.User.ID, "started", 0)
 }
